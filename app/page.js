@@ -24,7 +24,7 @@ export default function Home() {
         <Typography style={{flexGrow:1, fontSize: "24px", fontFamily: "ATAllowe", fontWeight: "bold"}}><Link href="#homepage" underline="none" sx={{color:"#b8c1ec"}}>Fl.ai.sh</Link></Typography>
         <Typography style={{flexGrow:1, fontSize: "18px", fontFamily: "ATAllowe", fontWeight: "bold"}}><Link href="#product" underline="none" sx={{color:"#b8c1ec"}}>Product</Link></Typography>
         <Typography style={{flexGrow:1, fontSize: "18px", fontFamily: "ATAllowe", fontWeight: "bold"}}><Link href="#pricing" underline="none" sx={{color:"#b8c1ec"}}>Pricing</Link></Typography>
-        <Typography style={{fontSize: "18px", fontFamily: "ATAllowe", fontWeight: "bold", marginRight: 15}}><Link href={(!isLoaded || !isSignedIn) ? "/sign-in" : "/flashcards"} underline="none" sx={{color:"#b8c1ec"}}>Dashboard</Link></Typography>
+        <Typography style={{flexGrow:1, fontSize: "18px", fontFamily: "ATAllowe", fontWeight: "bold"}}><Link href={(!isLoaded || !isSignedIn) ? "/sign-in" : "/flashcards"} underline="none" sx={{color:"#b8c1ec"}}>Dashboard</Link></Typography>
         <SignedOut>
           <Button sx={{color:"#b8c1ec", fontSize: "14px", fontWeight: "bold"}} href="/sign-in">Login</Button>
           <Button sx={{color:"#b8c1ec", fontSize: "14px", fontWeight: "bold"}} href="/sign-up">Sign Up</Button>
@@ -58,11 +58,19 @@ export default function Home() {
         </Button>
       </Box>
       </Container>
-      <Container id="product" maxWidth="100%" sx={{backgroundColor: "#C8B39E", height: "110vh", alignItems: "center"}}>
-      <Grid container spacing={4} color="#151931">  
+      <Container id="product" maxWidth="100%" sx={{backgroundColor: "#d4d8f0", height: "110vh", alignItems: "center", position: 'relative'}}>
+      <Grid container spacing={4} color="#232946">  
           <Grid item xs={12} md={4} marginTop={3}>
-            <div style={{maxWidth:"500px", backgroundColor: "#A096A5"}}>
-              <Typography textAlign="center" variant="h6" gutterBottom>Easy Text Input</Typography>
+            <div style={{
+              maxWidth:"500px", 
+              height: "120px", 
+              backgroundColor: "#fffffe", 
+              boxShadow: "2px 2px 6px #121629", 
+              display: "flex", 
+              alignItems: "center", 
+              justifyContent: "center", 
+              flexDirection: "column"}}>
+              <Typography textAlign="center" variant="h6" fontWeight="bold" gutterBottom>Easy Text Input</Typography>
               <Typography textAlign="center">
                 {' '}
                 Simply input your text and let our software do the rest. Creating flashcards has never been easier.
@@ -70,8 +78,16 @@ export default function Home() {
             </div>
           </Grid>
           <Grid item xs={12} md={4} marginTop={3}>
-            <div>
-              <Typography variant="h6" textAlign="center" gutterBottom>Smart Flashcards</Typography>
+            <div style={{
+              maxWidth:"500px", 
+              height: "120px", 
+              backgroundColor: "#fffffe", 
+              boxShadow: "2px 2px 6px #121629", 
+              display: "flex", 
+              alignItems: "center", 
+              justifyContent: "center", 
+              flexDirection: "column"}}>
+              <Typography textAlign="center" variant="h6" fontWeight="bold" gutterBottom>Smart Flashcards</Typography>
               <Typography textAlign="center">
                 {' '}
                 Our AI intelligently breaks down your text into concise flashcards, perfect for studying
@@ -79,8 +95,16 @@ export default function Home() {
             </div>
           </Grid>
           <Grid item xs={12} md={4} marginTop={3}>
-            <div>
-              <Typography variant="h6" textAlign="center" gutterBottom>Accessible Anywhere</Typography>
+            <div style={{
+              maxWidth:"500px", 
+              height: "120px", 
+              backgroundColor: "#fffffe", 
+              boxShadow: "2px 2px 6px #121629", 
+              display: "flex", 
+              alignItems: "center", 
+              justifyContent: "center", 
+              flexDirection: "column"}}>
+              <Typography textAlign="center" variant="h6" fontWeight="bold" gutterBottom>Accessible Anywhere</Typography>
               <Typography textAlign="center">
                 {' '}
                 Access your flashcards from any device, at any time. Study on the go with ease.
@@ -88,6 +112,16 @@ export default function Home() {
             </div>
           </Grid>
         </Grid>
+        <div style={{
+          position: "absolute",
+          top: '60%',
+          left: '50%',
+          transform: 'translate(-50%,-50%)',
+          width: "80vw",
+          height: "80vh"
+        }}>
+          <iframe width="100%" height="100%" frameborder="0" src="https://www.youtube.com/embed/eX66JFc4pqk?version=3&autoplay=1&loop=1&playlist=eX66JFc4pqk" allow='autoplay'/>
+        </div>
       </Container>
       <Container id="pricing" maxWidth="100%" sx={{backgroundColor: "#A096A5", height: "100vh", position:'relative'}}>
         <Pricing/>

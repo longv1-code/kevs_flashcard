@@ -8,8 +8,34 @@ import CheckIcon from '@mui/icons-material/Check';
 export default function Pricing() {
 
     
-  const handleSubmit = async () => {
-    const checkoutSession = await fetch('/api/checkout_session', {
+  const handleSubmitPro = async () => {
+    const checkoutSession = await fetch('/api/checkout_session/pro', {
+      method: 'POST',
+      headers: {
+        origin: 'http://localhost:3000' //CHANGE THIS BEFORE DEPLOYMENT -------------------------------------------------------[[]]
+      }
+    })
+
+    const checkoutSessionJson = await checkoutSession.json()
+
+    if (checkoutSession.statusCode === 500) {
+      console.error(checkoutSession.message)
+      return
+    }
+
+    const stripe = await getStripe()
+    const {error} = await stripe.redirectToCheckout({
+      sessionId: checkoutSessionJson.id
+    })
+
+    if (error) {
+      console.warn(error.message)
+    }
+  }
+
+      
+  const handleSubmitBasic = async () => {
+    const checkoutSession = await fetch('/api/checkout_session/basic', {
       method: 'POST',
       headers: {
         origin: 'http://localhost:3000' //CHANGE THIS BEFORE DEPLOYMENT -------------------------------------------------------[[]]
@@ -51,9 +77,6 @@ export default function Pricing() {
               <Typography variant="h6" gutterBottom sx={{fontFamily: "ATAlowwe", fontWeight:'bold'}}>FREE</Typography>
               <Typography><CheckIcon/>LIMITED FLASHCARD FEATURES</Typography>
               <Typography><CheckIcon/>LIMITED STORAGE</Typography>
-              <Button variant="contained" color="primary" sx={{mt:2}} onClick={handleSubmit}>
-              Choose Basic
-              </Button>
               </Box>
           </Grid>
           <Grid item xs={12} md={4}>
@@ -70,8 +93,8 @@ export default function Pricing() {
               <Typography><CheckIcon/>BETTER FLASHCARD FEATURES</Typography>
               <Typography><CheckIcon/>BETTER STORAGE</Typography>
               <Typography><CheckIcon/>CUSTOMER SUPPORT</Typography>
-              <Button variant="contained" color="primary" sx={{mt:2}} onClick={handleSubmit}>
-              Choose Advanced
+              <Button variant="contained" color="primary" sx={{mt:2}} onClick={handleSubmitBasic}>
+              Choose Basic
               </Button>
               </Box>
           </Grid>
@@ -89,7 +112,7 @@ export default function Pricing() {
               <Typography><CheckIcon/>UNLIMITED STORAGE</Typography>
               <Typography><CheckIcon/>PRIORITY SUPPORT</Typography>
               <Typography><CheckIcon/>BETTER EXPERIENCE</Typography>
-              <Button variant="contained" color="primary" sx={{mt:2}} onClick={handleSubmit}>
+              <Button variant="contained" color="primary" sx={{mt:2}} onClick={handleSubmitPro}>
               Choose Pro
               </Button>
               </Box>
