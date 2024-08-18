@@ -4,11 +4,14 @@ import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import getStripe from "@/utils/get-stripe"
 import { useSearchParams } from "next/navigation"
-import { Box, CircularProgress, Container, Typography } from "@mui/material"
+import { Button, Container, Toolbar, Typography, Box, Link, CircularProgress } from "@mui/material";
+import { useUser, SignedIn, SignedOut, UserButton  } from "@clerk/nextjs"
+
 
 
 
 const ResultPage = () => {
+    const {isLoaded, isSignedIn, user} = useUser()
     const router = useRouter()
     const searchParams = useSearchParams()
     const session_id = searchParams.get('session_id')
@@ -68,6 +71,20 @@ const ResultPage = () => {
     }
 
     return (
+        <Container maxWidth="100vw" disableGutters sx={{height: "100vh", backgroundColor: "#b8c1ec"}}>
+        <Toolbar position="static" maxWidth="100vw" sx={{backgroundColor: "#232946"}}>
+        <Typography style={{flexGrow:1, fontSize: "24px", fontFamily: "ATAllowe", fontWeight: "bold"}}><Link href="/#homepage" underline="none" sx={{color:"#b8c1ec"}}>Fl.ai.sh</Link></Typography>
+        <Typography style={{flexGrow:1, fontSize: "18px", fontFamily: "ATAllowe", fontWeight: "bold"}}><Link href="/#product" underline="none" sx={{color:"#b8c1ec"}}>Product</Link></Typography>
+        <Typography style={{flexGrow:1, fontSize: "18px", fontFamily: "ATAllowe", fontWeight: "bold"}}><Link href="/#pricing" underline="none" sx={{color:"#b8c1ec"}}>Pricing</Link></Typography>
+        <Typography style={{fontSize: "18px", fontFamily: "ATAllowe", fontWeight: "bold", marginRight: 15}}><Link href={(!isLoaded || !isSignedIn) ? "/sign-in" : "/flashcards"} underline="none" sx={{color:"#b8c1ec"}}>Dashboard</Link></Typography>
+        <SignedOut>
+          <Button sx={{color:"#b8c1ec", fontSize: "14px", fontWeight: "bold"}} href="/sign-in">Login</Button>
+          <Button sx={{color:"#b8c1ec", fontSize: "14px", fontWeight: "bold"}} href="/sign-up">Sign Up</Button>
+        </SignedOut>
+        <SignedIn>
+          <UserButton/>
+        </SignedIn>
+      </Toolbar>
         <Container maxWidth="100vw" sx={{
             textAlign: 'center',
             mt:4,
@@ -94,6 +111,7 @@ const ResultPage = () => {
                     </Box>
                 </>)
             }
+        </Container>
         </Container>
     )
 }

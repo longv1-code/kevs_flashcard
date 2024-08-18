@@ -9,6 +9,7 @@ import Typewriter from 'typewriter-effect'
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import { useUser } from "@clerk/nextjs"
 import "./globals.css"
+import Pricing from "./pricing/page";
 
 export default function Home() {
   const {isLoaded, isSignedIn} = useUser()
@@ -88,8 +89,8 @@ export default function Home() {
           </Grid>
         </Grid>
       </Container>
-      <Container id="pricing" maxWidth="100%" sx={{backgroundColor: "#A096A5", height: "110vh"}}>
-
+      <Container id="pricing" maxWidth="100%" sx={{backgroundColor: "#A096A5", height: "100vh", position:'relative'}}>
+        <Pricing/>
       </Container>
     </Container>
   )
