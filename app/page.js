@@ -33,7 +33,6 @@ export default function Home() {
           <UserButton/>
         </SignedIn>
       </Toolbar>
-
       <Box 
       sx={{
         textAlign:'center',
