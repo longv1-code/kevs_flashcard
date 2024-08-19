@@ -119,7 +119,7 @@ export default function Home() {
           width: "80vw",
           height: "80vh"
         }}>
-          <iframe width="100%" height="100%" frameborder="0" src="https://www.youtube.com/embed/eX66JFc4pqk?version=3&autoplay=1&loop=1&playlist=eX66JFc4pqk" allow='autoplay'/>
+          <iframe width="100%" height="100%" frameborder="0" src="https://www.youtube.com/embed/WTVcHCGQDik?version=3&autoplay=1&loop=1&mute=1&playlist=WTVcHCGQDik" allow='autoplay'/>
         </div>
       </Container>
       <Container id="pricing" maxWidth="100%" sx={{backgroundColor: "#A096A5", height: "100vh", position:'relative'}}>

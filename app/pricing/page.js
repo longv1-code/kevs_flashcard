@@ -72,7 +72,7 @@ export default function Pricing() {
               borderRadius: 2,
               backgroundColor: "#eebbc3",
               }}>
-              <Typography variant="h5" gutterBottom sx={{fontFamily: "ATAlowwe", fontWeight:'bold'}}>Basic</Typography>
+              <Typography variant="h5" gutterBottom sx={{fontFamily: "ATAlowwe", fontWeight:'bold'}}>Free</Typography>
               <Typography variant="h1" sx={{fontFamily: "ATAlowwe", fontWeight:'bold'}}> $0 </Typography>
               <Typography variant="h6" gutterBottom sx={{fontFamily: "ATAlowwe", fontWeight:'bold'}}>FREE</Typography>
               <Typography><CheckIcon/>LIMITED FLASHCARD FEATURES</Typography>
