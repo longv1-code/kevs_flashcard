@@ -106,7 +106,7 @@ export default function Pricing() {
               backgroundColor: "#b8c1ec"
               }}>
               <Typography variant="h5" gutterBottom sx={{fontFamily: "ATAlowwe", fontWeight:'bold'}}>Pro</Typography>
-              <Typography variant="h1" sx={{fontFamily: "ATAlowwe", fontWeight:'bold'}}> $10 </Typography>
+              <Typography variant="h1" sx={{fontFamily: "ATAlowwe", fontWeight:'bold'}}> $5 </Typography>
               <Typography variant="h6" gutterBottom sx={{fontFamily: "ATAlowwe", fontWeight:'bold'}}>Best Deal!</Typography>
               <Typography><CheckIcon/>ALL FLASHCARD FEATURES</Typography>
               <Typography><CheckIcon/>UNLIMITED STORAGE</Typography>
